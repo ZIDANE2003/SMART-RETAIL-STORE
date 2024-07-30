@@ -1,0 +1,47 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Recommendations</title>
+</head>
+<body>
+    <h1>Product Recommendations</h1>
+    
+    {% if recommendations %}
+        <h2>Recommended Products:</h2>
+        <ul>
+            {% for rec in recommendations %}
+                <li>{{ rec.product }} - {{ rec.offer }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No recommendations available.</p>
+    {% endif %}
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Recommendations</title>
+</head>
+<body>
+    <h1>Product Recommendations</h1>
+
+    {% for customer, recs in recommendations.items() %}
+        <h2>{{ customer }}'s Recommended Products:</h2>
+        {% if recs %}
+            <ul>
+                {% for rec in recs %}
+                    <li>{{ rec.product }} - {{ rec.offer }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No recommendations available for {{ customer }}.</p>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>

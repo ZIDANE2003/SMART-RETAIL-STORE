@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Offers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://nealanalytics.com/wp-content/uploads/2020/03/Women-shopping-in-mall-with-a-cart.jpg');
+            background-size: cover; 
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .product {
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 10px;
+            width: calc(25% - 20px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s, border 0.2s ease-in-out;
+            background-color: #fff;
+        }
+        .product:hover {
+            transform: scale(1.05);
+            border: 1px solid black;
+        }
+        h1 {
+            font-family: 'Ubuntu', sans-serif;
+            color: #fff;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h2, p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        .navigate-button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .big-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 24px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>WELCOME!!! Today's Specialiazed Offers for you</h1>
+<div class="product-container">
+    {% for product in recommendations %}
+    <div class="product">
+        <!-- Product Name -->
+        <h2>{{ product.name }}</h2>
+        <!-- Product Offer -->
+        <p>{{ product.offer }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Big fancy button to navigate to offers2.html -->
+<div class="navigate-button">
+    <button onclick="navigateToOffers2()" class="big-button">TODAY'S COMMON</button>
+</div>
+
+<!-- JavaScript function to navigate to offers2.html -->
+<script>
+    function navigateToOffers2() {
+        window.location.href = "/offers2";
+    }
+</script>
+
+</body>
+</html>
